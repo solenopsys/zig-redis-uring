@@ -94,7 +94,8 @@ pub const RedisClient = struct {
 
             // Parse bulk string response
             if (resp.len > 0 and resp[0] == '$') {
-                var lines = std.mem.split(u8, resp, "\r\n");
+                // Заменено split на splitSequence
+                var lines = std.mem.splitSequence(u8, resp, "\r\n");
                 _ = lines.next(); // Skip the $<length> part
                 if (lines.next()) |value| {
                     return value;
@@ -105,6 +106,15 @@ pub const RedisClient = struct {
         }
 
         return null;
+    }
+
+    // Delete a key
+    pub fn del(self: *RedisClient, key: []const u8) !void {
+        // Format the Redis DEL command
+        const command = try std.fmt.allocPrint(self.allocator, "*2\r\n$3\r\nDEL\r\n${d}\r\n{s}\r\n", .{ key.len, key });
+        defer self.allocator.free(command);
+
+        _ = try self.executeCommand(command);
     }
 
     // Execute a Redis command using io_uring
@@ -171,5 +181,3 @@ pub const RedisClient = struct {
         return self.buffer[0..bytes_read];
     }
 };
-
-// Example usage

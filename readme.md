@@ -30,19 +30,19 @@ Running Redis multithreaded benchmark with 16 threads and 10000 operations per t
 ===== Redis Multithreaded Benchmark =====
 
 Run 1/3
-BATCH SET: 105400.97 ops/sec (total across all threads)
-BATCH GET: 104228.45 ops/sec (total across all threads)
+BATCH SET: 104523.19 ops/sec (total across all threads)
+BATCH GET: 106742.29 ops/sec (total across all threads)
 
 Run 2/3
-BATCH SET: 105083.75 ops/sec (total across all threads)
-BATCH GET: 104271.81 ops/sec (total across all threads)
+BATCH SET: 108048.03 ops/sec (total across all threads)
+BATCH GET: 105104.02 ops/sec (total across all threads)
 
 Run 3/3
-BATCH SET: 104006.65 ops/sec (total across all threads)
-BATCH GET: 103869.09 ops/sec (total across all threads)
+BATCH SET: 107039.88 ops/sec (total across all threads)
+BATCH GET: 107139.94 ops/sec (total across all threads)
 
 ===== Average Results =====
-Average BATCH SET: 104830.46 ops/sec
-Average BATCH GET: 104123.12 ops/sec
+Average BATCH SET: 106537.03 ops/sec
+Average BATCH GET: 106328.75 ops/sec
 ============================
 ```
