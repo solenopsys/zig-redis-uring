@@ -19,7 +19,7 @@ zig run example.zig
 
 ## Benchmark on KeyDB
 ```
-zig run -O ReleaseFast  bench.zig
+zig run -O ReleaseFast  src/bench.zig
 ```
 Results
 
